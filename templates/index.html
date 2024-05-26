@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatib1e" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=l.0" />
+        <link rel="stylesheet" type="text/css" href="static/index.css" />
+        <title>home</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="nama">
+                <h1>Selamat Datang di Aplikasi Steganografi</h1>
+            </div>
+            <div class="gambar"> 
+                <img src="./static/1.png" alt="">
+            </div>
+            <div class="coppyright">
+              <h2>Sembunyikan Pesan Rahasia Anda di Balik Kata-kata Biasa</h2>
+            </div>
+            <div class="coppyright1">
+              <p>coppyright 2024 by Syamsul Maarip, Salman Miqdad, Kinanti </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row2">
+                <div class="content">
+                  <div class="content1">
+                    <H1>SEMBUNYKAN PESAN</H1>
+                  </div>
+                  <div class="content2">
+                    <form action="/hide" method="POST">
+                      <div class="input-box">
+                        <label for="sec_msg"><b>Pesan Tersembunyi</b></label>
+                        <input type="text" placeholder="Masukan pesan yang akan disembunyikan" name="sec_msg" id="email" required>
+                      </div>
+                      <div class="input-box">
+                        <label for="psw"><b>Kunci</b></label>
+                        <input type="password" placeholder="Masukkan Kunci" name="psw" id="psw" required><br>
+                      </div>
+                      <div class="input-box">
+                        <label for="psw"><b>Kaper Pesan</b></label>
+                        <input type="text" placeholder="Masukkan pesan yang ditampilkan" name="cvr_msg" id="cvr_msg" required>
+                      </div>
+                      <button type="submit" class="btn" onclick="onButtonClickHide()">SUBMIT</button>
+                    </form>
+                  </div>
+                  <div class="content3">
+                    <h1><b>SALIN PESAN</b></h1>
+                    <div class="hasil">
+                      <h1 class="hasil2">
+                        {% if result %}
+                          <input type="text" class="text" value='{{result}}'  name="emd_msg" id="emd_msg"  required>
+                        {% endif %}
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="row2">
+              <div class="content">
+                <div class="content1">
+                  <H1>TAMPILKAN PESAN</H1>
+                </div>
+                <div class="content2">
+                  <form action="/reveal" method="POST">
+                    <div class="input-box">
+                      <label for="psw"><b>Kaper Pesan</b></label>
+                      <input type="text" placeholder="Masukan Pesan" name="steg_msg" id="steg_msg" required>
+                    </div>
+                    <div class="input-box">
+                      <label for="psw_rev"><b>Kunci</b></label>
+                      <input type="password" placeholder="Enter Password" name="psw_rev" id="psw_rev" required><br>
+                    </div>
+                    <div class="button">
+                      <button type="submit" class="btn" onclick="onButtonClickReveal()">SUBMIT </button>
+                    </div>
+                  </form>
+                </div>
+                <div class="content3">
+                  <h1><b>PESAN RAHASIA</b></h1>
+                  <div class="hasil">
+                    <h1 class="hasil2">
+                      {% if result_reveal %}
+                        <input type="text" value='{{result_reveal}}' name="ext_msg" id="ext_msg" required>
+                      {% endif %}
+                    </h1>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+        </div>
+    </body>
+</html>
