@@ -13,4 +13,3 @@ def hideFunc(SM,password,CM):
     print("Kaper Pesan=",CM_HM)
     py.copy(CM_HM)
     return CM_HM
-    
