@@ -1,4 +1,4 @@
-from flask import Flask,request
+from flask import Flask,request 
 from flask import render_template,url_for
 from sender import hideFunc
 from receiver import revealFunc
