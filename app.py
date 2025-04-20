@@ -2,6 +2,8 @@ from flask import Flask,request
 from flask import render_template,url_for
 from sender import hideFunc
 from receiver import revealFunc
+import os
+import base64
 
 app = Flask(__name__)
 
@@ -26,6 +28,7 @@ def reveal():
     return render_template("index.html")
 
 
-if __name__=='__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=False, host='0.0.0.0', port=port)
 
